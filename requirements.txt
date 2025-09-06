@@ -3,4 +3,4 @@ googletrans==4.0.0-rc1
 edge-tts==7.2.3
 mutagen==1.46.0
 line-bot-sdk==3.19.0
-apscheduler==3.10.5
+apscheduler==3.11.0

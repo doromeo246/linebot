@@ -1,5 +1,5 @@
 Flask==2.3.2
-googletrans-new==1.1.9
+deep-translator==1.10.1
 edge-tts==7.2.3
 mutagen==1.46.0
 line-bot-sdk==3.19.0

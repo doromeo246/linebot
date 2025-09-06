@@ -42,6 +42,8 @@ handler = WebhookHandler(CHANNEL_SECRET)
 def callback():
     signature = request.headers.get("X-Line-Signature", "")
     body = request.get_data(as_text=True)
+    print("DEBUG - Signature:", signature)
+    print("DEBUG - Body:", body)
     try:
         handler.handle(body, signature)
     except Exception as e:
@@ -177,3 +179,4 @@ except (KeyboardInterrupt, SystemExit):
     pass
 finally:
     cleanup_files()
+

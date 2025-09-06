@@ -42,15 +42,28 @@ handler = WebhookHandler(CHANNEL_SECRET)
 def callback():
     signature = request.headers.get("X-Line-Signature", "")
     body = request.get_data(as_text=True)
-    print("DEBUG - Signature:", signature)
-    print("DEBUG - Body:", body)
+    
+    # 🔍 Debug：印出簽名與 body
+    print("===== LINE Webhook Debug =====")
+    print("Signature:", signature)
+    print("Body:", body)
+    print("================================")
+    
+    if not signature:
+        print("❌ X-Line-Signature header missing!")
+        abort(400, "X-Line-Signature header missing")
+    
+    if not body:
+        print("❌ Request body is empty!")
+        abort(400, "Request body is empty")
+    
     try:
         handler.handle(body, signature)
     except Exception as e:
         print("❌ Handler Error:", e)
-        abort(400)
+        abort(400, f"Handler error: {e}")
+    
     return "OK"
-
 # ====================================================
 # 🌐 deep-translator 翻譯
 # ====================================================
@@ -179,4 +192,5 @@ except (KeyboardInterrupt, SystemExit):
     pass
 finally:
     cleanup_files()
+
 

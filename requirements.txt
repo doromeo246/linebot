@@ -1,7 +1,6 @@
-flask
-python-dotenv
-line-bot-sdk==3.0.0
+Flask==2.3.2
 googletrans==4.0.0-rc1
-mutagen
-edge-tts
-apscheduler
+edge-tts==1.2.0
+mutagen==1.46.0
+line-bot-sdk==3.19.0
+apscheduler==3.10.5
